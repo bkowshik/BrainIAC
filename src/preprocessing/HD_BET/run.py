@@ -3,7 +3,7 @@ import numpy as np
 import SimpleITK as sitk
 from HD_BET.data_loading import load_and_preprocess, save_segmentation_nifti
 from HD_BET.predict_case import predict_case_3D_net
-import imp
+import importlib.machinery
 from HD_BET.utils import postprocess_prediction, SetNetworkToVal, get_params_fname, maybe_download_parameters
 import os
 import HD_BET
@@ -53,7 +53,7 @@ def run_hd_bet(mri_fnames, output_fnames, mode="accurate", config_file=os.path.j
 
     assert all([os.path.isfile(i) for i in list_of_param_files]), "Could not find parameter files"
 
-    cf = imp.load_source('cf', config_file)
+    cf = importlib.machinery.SourceFileLoader('cf', config_file).load_module()
     cf = cf.config()
 
     net, _ = cf.get_network(cf.val_use_train_mode, None)
