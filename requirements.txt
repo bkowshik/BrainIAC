@@ -1,17 +1,17 @@
-pytorch-lightning
-monai==1.3.2  # pinned: BrainIAC.ckpt predates MONAI 1.4 cross-attention ViT blocks; newer monai breaks strict state_dict load
-nibabel
-scikit-image
-scikit-learn
-scipy
-seaborn
-numpy
-autograd
-matplotlib
-SimpleITK
-tqdm
-pydicom
-wandb
-lifelines
-opencv-python
-einops
+pytorch-lightning==2.6.5
+monai==1.3.2  # must stay <1.4: BrainIAC.ckpt predates MONAI 1.4 cross-attention ViT blocks
+nibabel==5.4.2
+scikit-image==0.25.2
+scikit-learn==1.6.1
+scipy==1.16.3
+seaborn==0.13.2
+numpy==2.4.6
+autograd==1.8.0
+matplotlib==3.10.0
+SimpleITK==2.5.5
+tqdm==4.67.3
+pydicom==3.0.2
+wandb==0.27.1
+lifelines==0.30.3
+opencv-python==4.13.0.92
+einops==0.8.2
